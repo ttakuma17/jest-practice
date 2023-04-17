@@ -56,3 +56,20 @@ test("can2とcan4は同じプロパティを持つ", () => {
 // toEqual は異なるインスタンスでも同じプロパティ、同じ値を持っている場合に等しいと評価
 // 例外としては、Errorオブジェクトを比較する場合に toEqual関数ではmessageプロパティのみ評価する
 // Errorオブジェクトの評価の際には toThrowを使うこと
+
+test("can2とcan4は等しくないと評価", () => {
+    expect(can2).not.toStrictEqual(can4)
+})
+
+// 生成元のクラスをチェックする際には toStrictEqualを使用する
+
+
+
+/*
+toBe , toEqual , toStrictEqual の使い分け
+
+プリミティブ値を評価する場合 : toBe
+オブジェクトを比較する場合 : toEqual
+Object以外の独自クラスで生成されたオブジェクトを返す関数をテスト : toStrictEqual
+
+*/
