@@ -48,3 +48,27 @@ test("should be undefined", () => {
     a = null;
     expect(a === null).toBe(true)
 })
+
+/*
+曖昧な結果の評価
+
+テストでエラーが出ないことを確認したい
+ある特定の値に何らかの値が含まれることを確認したい場合に expect.anyhing、expect.any
+
+*/
+
+const hoge = () => ({ hoge: "hoge", number: 0 })
+it("hoge return anything", () => {
+    // 期待値がnullやundefinedではないことを評価
+    expect(hoge()).toEqual(expect.anything())
+    // 期待値の一部のプロパティがnullやundefinedではないことを評価
+    expect(hoge()).toEqual({
+        hoge: "hogehoge",
+        number: expect.anything(),
+    })
+    // 期待値の一部のプロパティがnumberがNumber型であることを評価
+    expect(hoge()).toEqual({
+        hoge: "hogehoge",
+        number: expect.any(Number),
+    })
+})
