@@ -19,3 +19,14 @@ it("0.1+0.2は0.3よりも大きい、または、0.3000000000004と等しい", 
     expect(0.1 + 0.2 >= 0.30000000000000004).toBe(true);
 })
 
+it("0.1+0.2 is less than 0.4", () => {
+    expect(0.1 + 0.2).toBeLessThan(0.4);
+    expect(0.1 + 0.2 < 0.4).toBe(true);
+})
+
+it("0.1 + 0.2 is less than 0.4 or 0.1 + 0.2 equals to 0.30000000000000004", () => {
+    expect(0.1 + 0.2).toBeLessThanOrEqual(0.4);
+    expect(0.1 + 0.2).toBeLessThanOrEqual(0.30000000000000004);
+    expect(0.1 + 0.2 <= 0.4).toBe(true);
+    expect(0.1 + 0.2 <= 0.30000000000000004).toBe(true);
+})
